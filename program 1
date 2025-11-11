@@ -1,0 +1,36 @@
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        Car car = new Car("Audi",250);
+        car.Drive();
+        car.Speed = 400;
+        car.Speed = -50;
+        car.Drive();
+
+    }
+}
+internal class Car
+ {
+     private int _speed;
+     public int Speed
+     { get { return _speed; } set 
+         { if (value < 0 || value > 300)
+             { 
+                 Console.WriteLine("Скорость не может превышать 300!");
+             }    
+             else { _speed = value; }
+         } 
+     }
+     public string Model { get; set; } = "Unknow";
+     public Car(string model, int speed)
+     {
+         Model = model;
+         Speed = speed;
+     }
+
+     public void Drive()
+     {
+         Console.WriteLine($"{Model} едет со скоростью {Speed} км/ч");
+     }
+ }
